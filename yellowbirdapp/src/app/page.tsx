@@ -9,6 +9,7 @@ import PostContainer from './components/postContainer';
 import { decryptToken, getUserInfo } from './api/authHandler';
 
 const Home: React.FC = () => {
+  const [username, setUserName] = useState("guest");
   const [userLoggedIn, setUserLoggedIn] = useState(false);
   const [feedPosts, setFeedPosts] = useState<any[]>([])
   const [userId, setUserId] = useState("")
@@ -19,6 +20,7 @@ const Home: React.FC = () => {
       if (userInfo){
         setUserLoggedIn(true)
         setUserId(userInfo.id)
+        setUserName(userInfo.name)
       }
     }
 
@@ -41,10 +43,19 @@ const Home: React.FC = () => {
   
 
   return (<div className='main-div'>
+    <div className='header-div'>
     <LogoIcon></LogoIcon>
-    <div className='main-page'>
-      <PostCreator isLogged={userLoggedIn} userId= {userId}></PostCreator>
-      <PostContainer posts={feedPosts}></PostContainer>
+    </div>
+    <div className="website-div">
+      <div className='profile-div'>
+        <h3>seja bem vindo, {username}!</h3>
+      </div>
+      <div className='line'>
+      </div>
+      <div className='main-page'>
+        <PostCreator isLogged={userLoggedIn} userId= {userId}></PostCreator>
+        <PostContainer posts={feedPosts}></PostContainer>
+      </div>
     </div>
   </div>
     

@@ -5,6 +5,7 @@ import './login.css'
 import { storeToken } from '../api/authHandler';
 import { FormEvent } from 'react'
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface LoginRequestBody {
     email: string;
@@ -12,8 +13,8 @@ interface LoginRequestBody {
 }
 
 const Home: React.FC = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('email');
+    const [password, setPassword] = useState('senha');
     const [feedback, setFeedback] = useState('insira seu email e senha');
     const router = useRouter();
 
@@ -49,16 +50,19 @@ const Home: React.FC = () => {
       }
 
   return (<div className='main-div-login'>
-    <LogoIcon></LogoIcon>
     <div className='main-page-login'>
+    <LogoIcon></LogoIcon>
         <h1>login</h1>
         <div className='login-form-div'>
             <form onSubmit={onSubmit} className='login-form'>
-                <input id="standard-adornment-email"value={email}onChange={(e) => setEmail(e.target.value)} className='form-input'/>
-                <input id="standard-adornment-password" value={password} onChange={(e) => setPassword(e.target.value)} className='form-input'/>
+                <h4>email:</h4>
+                <input id="standard-adornment-email"value={email}onChange={(e) => setEmail(e.target.value)} className='form-input-login' name="email"/>
+                <h4>senha:</h4>
+                <input id="standard-adornment-password" value={password} onChange={(e) => setPassword(e.target.value)} className='form-input-login' name="senha"/>
                 <button type="submit" className='login-button'>entrar</button>
             </form>
             <h5 className='h5-feedback'>{feedback}</h5>
+            <Link href="/register">não possui conta? clique aqui!</Link>
         </div>
     </div>
   </div>

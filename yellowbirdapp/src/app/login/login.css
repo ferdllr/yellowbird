@@ -2,9 +2,9 @@ html {
     background-color: #f6ffa2;
 }
 .main-icon{
-    position: absolute;
     width: 100px;
     height: 100px;
+    border-radius: 50%;
 }
 .main-div-login{
     height: 100%;
@@ -19,9 +19,9 @@ html {
     border-radius: 3%;
     padding-top: 1%;
     height: 50%;
-    width: 40%;
-    margin-left: 30%;
-    background-color: whitesmoke;
+    width: 30%;
+    margin-left: 37%;
+    background-color: #ffde59;
 }
 .login-form{
     padding-top: 5%;
@@ -56,4 +56,5 @@ html {
     height: 30%;
     border: none;
     background-color: #f2ff7e;
+    border-radius: 15%;
 }
